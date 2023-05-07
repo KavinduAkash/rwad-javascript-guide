@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08 Arrays in JS</title>
+</head>
+<body>
+
+<script>
+
+    /*
+    * There are 2 main ways to create array in JS
+    * 1) Literal Based
+    * 2) Constructor Based (Using new Array())
+    *
+    * But, They introduce another 2 ways to define arrays in JS with ES6 in 2015
+    * 3) Array.from()
+    * 4) Array.of()
+    * */
+
+    // 1) Literal Based
+
+    let array1 = [];
+    array1 = [1, 2, 3, 4, 5, 6];
+    array1 = [1, 2, "hello", true, function() {alert("hi!!!!")}, {name: "Saman", age: 20}];
+
+    console.log(array1[3]) //true
+    console.log(array1[2]) //'hello'
+    console.log(array1[4]) //ƒ () {alert("hi!!!!")}
+    array1[4]() // call the function
+    console.log(array1[5]) // {name: 'Saman', age: 20}
+    console.log(array1[5].name) //'Saman'
+    console.log(array1[5].age) //20
+
+    // 2) Constructor Based (Using new Array())
+
+    let array2 = new Array(1, 2, 3, 4, 5, "Software Developer", function () {alert("IJSE")});
+
+    let array3 = new Array(5); //[empty × 5]
+    array3 = new Array(5.9); //Invalid array length
+    array3 = new Array("s"); //['s']
+    array3 = new Array(func); //func is not defined
+    array3 = new Array(function() {alert("h1")}); //[ƒ]
+    array3 = new Array({}); //[{…}]
+    array3 = new Array(5.9, 5.6); //[5.9, 5.6]
+
+    // 3) Array.from()
+
+    let x = "hello";
+    Array.from(x); //['h', 'e', 'l', 'l', 'o']
+
+    let y = [1, 'hello', {}];
+    Array.from(y); //[1, 'hello', {…}]
+
+    // 4) Array.of()
+
+    let z = Array.of(1, 2, "Hello", {}, "hi", function(){});
+
+
+    // > push() - Adds one or more elements to the end of an array and returns the new length of the array.
+    let myArray1 = ["Ranil", "Mahindha", "Anura"];
+    myArray1.push("Ranjan");
+    console.log(myArray1); // ['Ranil', 'Mahindha', 'Anura', 'Ranjan']
+    myArray1[4] = "Karuu";
+    console.log(myArray1); //['Ranil', 'Mahindha', 'Anura', 'Ranjan', 'Karuu']
+
+    // > pop() - Removes the last element from an array and returns that element.
+    myArray1 = ['Ranil', 'Mahindha', 'Anura', 'Ranjan', 'Karuu'];
+    myArray1.pop();
+    console.log(myArray1); // ['Ranil', 'Mahindha', 'Anura', 'Ranjan']
+    myArray1.pop();
+    console.log(myArray1); // ['Ranil', 'Mahindha', 'Anura']
+
+    // > shift() - Removes the first element from an array and returns that element.
+    myArray1 = ['Ranil', 'Mahindha', 'Anura'];
+    myArray1.shift();
+    console.log(myArray1); // ['Mahindha', 'Anura']
+
+    // > unshift() - Adds one or more elements to the beginning of an array and returns the new length of the array.
+
+    myArray1 = ['Mahindha', 'Anura'];
+    myArray1.unshift('Sajith'); // return 3 here
+    console.log(myArray1); // ['Sajith', 'Mahindha', 'Anura']
+    myArray1.unshift('Ranil', 'Namal');
+    console.log(myArray1); // ['Ranil', 'Namal', 'Sajith', 'Mahindha', 'Anura']
+
+    // > concat() - Joins two or more arrays and returns a new array.
+    let array1 = [1, 2, 3];
+    let array2 = [4, 5, 6, 7, 8, 9, 10];
+
+    array1.concat(array2); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    array2.concat(array1); // [4, 5, 6, 7, 8, 9, 10, 1, 2, 3]
+
+    // > slice() - Returns a shallow copy of a portion of an array into a new array.
+    let numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    console.log(numberArray.slice(2)) //[3, 4, 5, 6, 7, 8, 9, 10]
+    console.log(numberArray.slice(4)) // [5, 6, 7, 8, 9, 10]
+    console.log(numberArray.slice(-1)) // [10]
+    console.log(numberArray.slice(-2)) // [9, 10]
+    console.log(numberArray.slice(2, 6)) //[3, 4, 5, 6]
+
+    // > splice() - Adds or removes elements from an array at a specified position.
+
+    let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    arr1.splice(7);
+    console.log(arr1); // [1, 2, 3, 4, 5, 6, 7]
+    arr1.splice(5);
+    console.log(arr1); // [1, 2, 3, 4, 5]
+    arr1.splice(1, 3);
+    console.log(arr1); // [1, 5]
+
+    arr1 = [1, 2, 3, 4, 5];
+    arr1.splice(1, 3, 100, 200, 300);
+    console.log(arr1); // [1, 100, 200, 300, 5]
+    arr1.splice(1, 3, 1000, 2000)
+    console.log(arr1); // [1, 1000, 2000, 5]
+
+    // > indexOf() - Returns the first index at which a given element can be found in the array.
+    let arr2 = [1, 2, 3, 4 ,5];
+    console.log(arr2.indexOf(3)); // 2
+
+    arr2 = [1, 2, 3, 4 ,5, 2];
+    console.log(arr2.indexOf(2)); // 1 (Returns the first index at which a given element can be found in the array)
+
+    // > lastIndexOf() - Returns the last index at which a given element can be found in the array.
+    arr2 = [1, 2, 3, 4 ,5, 2];
+    console.log(arr2.lastIndexOf(2)); // 5
+
+    // > includes() - Determines whether an array includes a certain value among its entries.
+    arr2 = [1, 2, 3, 4 ,5, 2, "Hello"];
+
+    arr2.includes(4); //true
+    arr2.includes(7); //false
+    arr2.push("Hello"); // 7
+    arr2.includes("Hello"); // true
+    arr2.includes("hello"); // false
+
+    // > filter() - Creates a new array with all elements that pass the test implemented by the provided function.
+    arr2 = [1, 2, 3, 4 ,5, 2];
+    arr2.filter(function(item) {
+        console.log(item);
+    })
+    /*
+    1
+    2
+    3
+    4
+    5
+    2
+    */
+    arr2.filter(function(item) {
+        return item % 2 === 0
+    })
+    // [2, 4, 2]
+
+    arr2.filter(function(item) {
+        return item % 2 > 0
+    })
+    // [1, 3, 5]
+
+    arr5 = [{name: "Saman", age: 30, company: {id: 1, name: "ABC"}}, {name: "Kamal", age: 29, company: {id: 2, name: "XYZ"}}, {name: "Siril", age: 36, company: {id: 1, name: "ABC"}}, {name: "Janith", age: 20, company: {id: 2, name: "XYZ"}}];
+
+    arr5.filter(function(item) {
+        console.log(item);
+    })
+
+    arr5.filter(function(item) {
+        return item.company.id === 1
+    })
+
+    // Extra ---------------------
+
+    for(let i = 0; i < arr2.length - 1; i++) {
+        console.log(arr2[i]);
+    }
+
+    /*
+    1
+    2
+    3
+    4
+    5
+    2
+    */
+
+    // > map() - Creates a new array with the results of calling a provided function on every element in the array.
+    arr2.map((item, index) => {console.log(index)});
+
+    // > reduce() - Applies a function against an accumulator and each element in the array to reduce it to a single value.
+    arr3 = [1, 2, 3, 4];
+
+    let result = arr3.reduce((acum, currentvalue) => acum + currentvalue)
+    console.log(result); // 10
+
+    // > forEach() - Executes a provided function once for each array element.
+    arr3.forEach(function(item) {
+        console.log(item);
+    })
+    arr3.forEach((item) => {
+        console.log(item);
+    })
+    /*
+   1
+   2
+   3
+   4
+   */
+
+    // > sort() - Sorts the elements of an array in place and returns the array.
+    let arr7 = [20, 10, 40, 30, 15];
+    arr7.sort() // [10, 15, 20, 30, 40]
+
+    // > reverse() - Reverses the order of the elements in an array.
+    arr7.reverse() // [40, 30, 20, 15, 10]
+
+    // > find() - Returns the value of the first element in the array that satisfies the provided testing function.
+    var newarr = [];
+    let arr7 = [20, 10, 40, 30, 15];
+    arr7.find((item) => {
+        if(item > 25) {
+            newarr.push(item);
+        }
+    })
+    console.log(newarr); // [40, 30]
+
+    // > some() - Tests whether at least one element in the array passes the test implemented by the provided function.
+    let arr9 = [2, 4, 5];
+    let y = arr9.some(function(item) {return item % 2 > 0});
+    console.log(y); // true
+
+    let arr9 = [2, 4, 8];
+    let y = arr9.some(function(item) {return item % 2 > 0});
+    console.log(y); // false
+
+    // > every() - Tests whether all elements in the array pass the test implemented by the provided function.
+    arr9 = [1, 3, 4];
+    let rs = arr9.every((item) => item % 2 > 0); //false
+    arr9 = [1, 3, 5];
+    rs = arr9.every((item) => item % 2 > 0); // true
+
+    // > join() - Joins all elements of an array into a string.
+    arr9 = [1, 3, 5];
+    arr9.join("-") //'1-3-5'
+    arr9.join(",") //'1,3,5'
+    arr9.join("*") //'1*3*5'
+    arr9.join("->") //'1->3->5'
+    arr9.join(">>") //'1>>3>>5'
+
+    // > toString() - Returns a string representing the specified array and its elements.
+
+    arr9.toString(); // '1,3,5'
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /*
+    There are different ways to create new objects:
+
+        > Object Literal
+        > Object Constructor
+        > Object.create()
+        > Class (ES6 - 2015)
+    */
+
+    // > Object Literal
+
+    // const myobj = {}
+
+    const x = {
+        id: 1,
+        firstName: "Kavindu",
+        lastName: "Akash",
+        address: {
+            address_line1: "Panadura",
+            address_line2: "Colombo"
+        },
+        salary: 1000000,
+        isEmployee: true,
+        calcPass: function () {
+            console.log("hello!")
+        }
+    }
+
+    // get values
+
+    console.log(x.id); // 1
+    console.log(x.firstName); // Kavindu
+    console.log(x.lastName); // Akash
+    console.log(x.address); // {address_line1: "Panadura", address_line2: "Colombo"}
+    console.log(x.address.address_line2); //Colombo
+
+    console.log(x["id"]); // 1
+    console.log(x["firstName"]); // Kavindu
+    console.log(x["lastName"]); // Akash
+    console.log(x["address"]); // {address_line1: "Panadura", address_line2: "Colombo"}
+    console.log(x["address"]["address_line2"]); //Colombo
+
+    // add key-values
+
+    x["age"] = 28;
+    x.country = "Sri Lanka";
+    x["address"]["street"] = "flower rd";
+    x.address.street = "flower rd";
+
+    // update value
+    x["country"] = "india";
+    x.age = 26;
+    x["address"]["street"] = "silva rd";
+    x.address.street = "silva rd";
+
+    // functions in object
+    x.calcPass(); // hello
+
+    const y = {
+        _id: 1,
+        _firstName: "Kavindu",
+        _lastName: "Akash",
+        _address: {
+            address_line1: "Panadura",
+            address_line2: "Colombo"
+        },
+        salary: 1000000,
+        isEmployee: true,
+        calcPass: function () {
+            console.log("hello!")
+        },
+        get firstName() {
+          return this._firstName;
+        },
+        set firstName(firstname) {
+            this._firstName = firstname;
+        }
+    }
+
+    y.firstName // getter res: Kavindu
+    y.firstName("Janith") // setter res: err
+    y.firstName = "Janith" // setter res: Janith
+
+    // 2) Object constructor
+
+    function Employee(name, age, salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    const employee = new Employee("Kamal", 30, 20000);
+
+    // 3) Object.create()
+
+    const newEmployee = Object.create(employee); // Employee {}
+
+    // 4) Class
+
+    class MyClass {
+        constructor(name, age, salary) {
+            this._name = name;
+            this._age = age;
+            this._salary = salary;
+        }
+        get name() {return this._name}
+        set name(name) {this._name = name}
+
+        get age() {return this._age}
+        set age(age) {this._age = age}
+
+        get salary() {return this._salary}
+        set salary(salary) {this._salary = salary}
+    }
+
+    let myClassObj = new MyClass("Siril", 20, 100000);
+
+    // delete key-value
+    delete x["_name"]
+
+</script>
+
+</body>
+</html>

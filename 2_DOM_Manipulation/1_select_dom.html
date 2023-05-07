@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1 Select DOM</title>
+</head>
+<body>
+
+<h1>Hello IJSE Students!</h1>
+
+<h2>HTML Module</h2>
+<p class="myText">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa facere harum, magni repellendus vel
+    velit! Dolor ducimus, eos id praesentium repudiandae sit veritatis vitae! Asperiores natus nesciunt praesentium
+    voluptatum.
+</p>
+
+<h2 id="myh2">CSS Module</h2>
+<p class="myText">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa facere harum, magni repellendus vel
+    velit! Dolor ducimus, eos id praesentium repudiandae sit veritatis vitae! Asperiores natus nesciunt praesentium
+    voluptatum.
+</p>
+
+<h2 class="myText">JS Module</h2>
+<p id="myP" class="myText">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa facere harum, magni repellendus vel
+    velit! Dolor ducimus, eos id praesentium repudiandae sit veritatis vitae! Asperiores natus nesciunt praesentium
+    voluptatum.
+</p>
+
+<ul>
+    <li>Java</li>
+    <li>Python</li>
+    <li>GoLang</li>
+    <li>C++</li>
+</ul>
+
+
+<!--    <input type="text" name="username"> <br><br>-->
+<!--    <input type="password" name="password"> <br><br>-->
+<!--    <button>Click Me</button>-->
+
+<input type="text" name="urlInput"> <br><br>
+<button>Click Me</button>
+<br>
+<br>
+<img src="" alt="image">
+
+<script>
+
+    document.querySelector("button").addEventListener("click", function () {
+        // step 1: get value from the text field
+        // document.getElementsByName("urlInput")[0].value;
+
+        // step 2: set that value to img src attribute
+        document.querySelector("img").setAttribute("src", document.getElementsByName("urlInput")[0].value);
+    })
+
+
+    /*
+
+JavaScript provides six methods to select an element from the document.
+
+1) getElementById – search element by element_id
+2) getElementsByTagName – search element by tag name (e.g., span, div)
+3) getElementsByClassName – search element by class name
+4) getElementsByName – search element by name attribute
+
+5) querySelector – returns the first element that matches the specified selector
+6) querySelectorAll – returns elements that match the specified selector
+
+*/
+
+    // Selectors
+
+    // document.getElementsByTagName("h1");
+    // document.getElementById("myh2");
+    // document.getElementById("myP");
+    // document.getElementsByClassName("myText");
+    // document.getElementsByName("username");
+    // document.getElementsByName("password");
+    // document.querySelector("#myh2");
+    // document.querySelector(".myText");
+    // document.querySelector("h2");
+    // document.querySelector("h2");
+    // document.querySelector(".myText");
+    // document.querySelectorAll("h2");
+    // document.querySelectorAll(".myText");
+
+    // innertext
+
+    // document.getElementsByTagName("h2")[0].innerText;
+    // 'HTML Module'
+
+    // document.getElementsByTagName("h2")[1].innerText;
+    // 'CSS Module'
+
+    // document.getElementsByTagName("h2")[2].innerText;
+    // 'JS Module'
+
+    // set inner text
+
+    // document.getElementsByTagName("h1")[0].innerText = "Hello Fullstack Developers!!";
+
+    // set attribute
+
+    // document.getElementsByName("username")[0].setAttribute("placeholder", "username");
+    // document.getElementsByName("password")[0].setAttribute("placeholder", "password");
+
+
+</script>
+
+</body>
+</html>

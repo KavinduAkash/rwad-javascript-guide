@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3 Styling with jQuery</title>
+</head>
+<body>
+
+<button type="button" class="color-btn" id="red">Red</button>
+<button type="button" class="color-btn" id="blue">Blue</button>
+<button type="button" class="color-btn" id="green">Green</button>
+<button type="button" class="color-btn" id="pink">Pink</button>
+<button type="button" class="color-btn" id="black">black</button>
+<button type="button" class="color-btn" id="gray">Gray</button>
+<button type="button" class="color-btn" id="yellow">yellow</button>
+<button type="button" class="color-btn" id="purple">purple</button>
+<button type="button" class="color-btn" id="orange">orange</button>
+<button type="button" class="color-btn" id="greenyellow">greenyellow</button>
+
+<h1>Hello IJSE GDSE 61/63 Students!</h1>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto, aspernatur corporis eaque earum eos eum facilis ipsa ipsum maxime minus natus, necessitatibus quas repellat sed, sequi velit veniam voluptatem?
+</p>
+
+<h2 id="myTopic">Welcome to JavaScript Module</h2>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi cum delectus deserunt dolor dolore dolorum, ducimus esse excepturi illum maxime neque nisi officiis provident quo rerum sint voluptas. Eos.
+</p>
+
+<h2>Welcome to jQuery: basics</h2>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi cum delectus deserunt dolor dolore dolorum, ducimus esse excepturi illum maxime neque nisi officiis provident quo rerum sint voluptas. Eos.
+</p>
+
+
+<h2>Welcome to jQuery: adv</h2>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi cum delectus deserunt dolor dolore dolorum, ducimus esse excepturi illum maxime neque nisi officiis provident quo rerum sint voluptas. Eos.
+</p>
+
+
+<h5>Module Content: </h5>
+<ol>
+    <li class="myClass">Topic 01</li>
+    <li>Topic 02</li>
+    <li>Topic 03</li>
+    <li>Topic 04</li>
+    <li>Topic 05</li>
+</ol>
+
+
+<form>
+    <input type="text" name="comment">
+    <br><br>
+    <button>Add Comment</button>
+</form>
+
+<br>
+<br>
+
+<a href="https://ijse.lk">Visit IJSE Official Website for more details</a> <br>
+<a href="http://jquery">Visit jQuery Official Website for more details</a>
+
+<script src="../assets/lib/jQuery/jquery-3.6.4.min.js"></script>
+<script>
+
+    // .css(property, value)
+    // $('h1').css("color", "green");
+    // $('h1').css("background", "yellow");
+    //
+    // $('p').first().css("background", "pink");
+    // $('p').first().css("font-weight", "bold");
+    //
+    // $('h2').css({background: "blue", color: "white"});
+
+    // document.getElementById('red').addEventListener("click", function () {
+    //     // document.getElementsByTagName("body")[0].style.background = "red";
+    //     $("body").css("background", "red");
+    // })
+
+    $('.color-btn').click(function (event) {
+        console.log(event.target.id);
+        $("body").css("background", event.target.id);
+    })
+
+    // 4) A function created using the Function constructor
+
+    const myFunction10 = new Function("a", "b", "return a + b");
+    var result4 = myFunction10(40, 5);
+    console.log(result4);
+
+</script>
+
+</body>
+</html>

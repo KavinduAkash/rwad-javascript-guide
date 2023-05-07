@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2 Select DOM with jQuery</title>
+</head>
+<body>
+
+<h1>Hello IJSE GDSE 61/63 Students!</h1>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto, aspernatur corporis eaque earum eos eum facilis ipsa ipsum maxime minus natus, necessitatibus quas repellat sed, sequi velit veniam voluptatem?
+</p>
+
+<h2 id="myTopic">Welcome to JavaScript Module</h2>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi cum delectus deserunt dolor dolore dolorum, ducimus esse excepturi illum maxime neque nisi officiis provident quo rerum sint voluptas. Eos.
+</p>
+
+<h2>Welcome to jQuery: basics</h2>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi cum delectus deserunt dolor dolore dolorum, ducimus esse excepturi illum maxime neque nisi officiis provident quo rerum sint voluptas. Eos.
+</p>
+
+
+<h2>Welcome to jQuery: adv</h2>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi cum delectus deserunt dolor dolore dolorum, ducimus esse excepturi illum maxime neque nisi officiis provident quo rerum sint voluptas. Eos.
+</p>
+
+
+<h5>Module Content: </h5>
+<ol>
+    <li class="myClass">Topic 01</li>
+    <li>Topic 02</li>
+    <li>Topic 03</li>
+    <li>Topic 04</li>
+    <li>Topic 05</li>
+</ol>
+
+
+<form>
+    <input type="text" name="comment">
+    <br><br>
+    <button>Add Comment</button>
+</form>
+
+<br>
+<br>
+
+<a href="https://ijse.lk">Visit IJSE Official Website for more details</a> <br>
+<a href="http://jquery">Visit jQuery Official Website for more details</a>
+
+<script src="../assets/lib/jQuery/jquery-3.6.4.min.js"></script>
+<script>
+
+/*
+
+JavaScript provides six methods to select an element from the document.
+
+1) getElementById – search element by element_id
+2) getElementsByTagName – search element by tag name (e.g., span, div)
+3) getElementsByClassName – search element by class name
+4) getElementsByName – search element by name attribute
+5) querySelector – returns the first element that matches the specified selector
+6) querySelectorAll – returns elements that match the specified selector
+
+*/
+
+// ---------- get text ------------
+console.log($('h1').text());
+console.log($('h1').text());
+$('#myTopic').text();
+$('.myClass').text();
+
+console.log($('h2').first().text());
+console.log($('h2').last().text());
+console.log($('h2').eq(1).text());
+console.log($('h2').eq(0).text());
+console.log($('h2').eq(2).text());
+
+// ---------- update text -----------
+$('h1').text("Hello Future Software Engineers");
+
+// ---------- get html --------------
+// document.getElementsByTagName("h1")[0].innerHTML
+// document.getElementsByTagName("ol")[0].innerHTML
+// document.getElementsByTagName("h1")[0].innerHTML="<i>Hello Associate Software Engineers</i>"
+
+console.log($('ol').html());
+
+// ---------- update html --------------
+
+$('h1').html("<i>Hello Associate Software Engineers</i>");
+
+// ---------- append & prepend ------------
+
+$('ol').append("<li>Topic 06</li>"); // add to content end
+$('ol').prepend("<li>Topic 07</li>"); // add to content start
+
+// ---------- change styles ---------------
+
+
+
+</script>
+
+</body>
+</html>

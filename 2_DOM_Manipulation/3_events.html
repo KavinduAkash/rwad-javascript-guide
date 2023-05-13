@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03 Events in JS</title>
+
+    <style>
+        body {
+            height: 100vh;
+        }
+        #follower {
+            width: 80px;
+            aspect-ratio: 1/1;
+            background: orangered;
+            border-radius: 100%;
+            position: absolute;
+        }
+        #area {
+            width: 200px;
+            height: 200px;
+            background: cornflowerblue;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="width-and-height">
+    <h3>Width: <span></span></h3>
+    <h3>height: <span></span></h3>
+</div>
+
+<form id="myForm">
+    <label>Name</label>
+    <br>
+    <input type="text" id="name" name="name">
+    <br>
+    <br>
+    <label>Email</label>
+    <br>
+    <input type="emai" id="email" name="email">
+    <br>
+    <br>
+    <label for="fruit">Select a fruit:</label>
+    <select id="fruit" name="fruit">
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="orange">Orange</option>
+    </select>
+    <br>
+    <br>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+</form>
+
+<hr>
+
+<button id="myButton">Click</button>
+
+<!--<div id="follower"></div>-->
+<div id="area"></div>
+
+<input type="text" id="myInput">
+<h1 id="myTitle"></h1>
+
+<script src="../assets/lib/jQuery/jquery-3.6.4.min.js"></script>
+<script>
+
+    // ------------------ Mouse Events ----------------------
+
+    // -- click event
+
+    /* $('#myButton').click(() => {
+        alert("Clicked");
+    })*/
+    /* $('#myButton').on('click', () => {
+        alert("Clicked - 2");
+     })*/
+
+    // -- double click event (dblclick)
+
+    /*$('#myButton').on('dblclick', () => {
+        alert('Double Clicked!');
+    })*/
+
+    // -- mouse down (mousedown)
+
+    /*$('#myButton').on('mousedown', () => {
+        console.log("Mouse Down!");
+    })*/
+
+    // -- mouse up (mouseup)
+
+    /*$('#myButton').on('mouseup', () => {
+        console.log("Mouse Up!");
+    })*/
+
+    // -- mouse move (mousemove)
+
+    /*$('#myButton').on('mousemove', () => {
+        console.log("Mouse moved!");
+    })*/
+
+    /*$('body').on('mousemove', (event) => {
+        // console.log("Mouse moved on body!");
+        let mouseX = event.clientX;
+        let mouseY = event.clientY;
+        console.log("X: ", mouseX);
+        console.log("Y: ", mouseY);
+        $('#follower').css({left: mouseX, top: mouseY});
+    })*/
+
+    // -- mouse leave (mouseleave)
+
+    /*$('#area').on('mouseleave', () => {
+        console.log('Mouse Leaved!')
+        $('body').css({background: 'red'})
+    })*/
+
+    // -- mouse over (mouseover)
+
+    /*$('#area').on('mouseover', () => {
+        console.log('Mouse Over!');
+        $('body').css({background: 'yellow'})
+    })*/
+
+    // -- wheel
+
+    /*$('body').on('wheel', () => {
+        console.log("Mouse Wheel!");
+    })*/
+
+    // ------------------ Keyboard Events ----------------------
+
+    // key down -> key press -> key up
+
+    // -- key down (keydown)
+    /*$('#myInput').on('keydown', () => {
+        console.log('Key Down!');
+    })*/
+
+    // -- key up (keyup)
+    /*$('#myInput').on('keyup', () => {
+        console.log('Key Up!');
+    })*/
+
+    // -- key press (keypress)
+
+    $('#myInput').on('keypress', (event) => {
+        console.log('Key Pressed: ', event.key);
+        if(event.key === "Enter") {
+            let value = $('#myInput').val();
+            $('#myTitle').text(value);
+        }
+    })
+
+    // ------------------ Focus Events ----------------------
+
+    // focus in -> focus -> focus out -> blur
+
+    // -- focus
+
+    $('#myInput').on('focus', () => {
+        console.log('Focused!');
+    })
+
+    // -- focus in (focusin)
+
+    $('#myInput').on('focusin', () => {
+        console.log('Focused in!');
+    })
+
+    // -- focus out (focusout)
+
+    $('#myInput').on('focusout', () => {
+        console.log('Focused out!');
+    })
+
+    // -- blur (blur)
+
+    $('#myInput').on('blur', () => {
+        console.log('Focused blur!');
+    })
+
+    // ---------------------- Window events ----------------------
+
+    // -- load
+    $(window).on('load', () => {
+        // alert("Loaded!");
+    })
+
+    // -- resize
+    $(window).on('resize', (event) => {
+        // console.log("Window Resized! ------------");
+        // console.log("Width: ", $(window).width());
+        // console.log("height: ", $(window).height());
+
+        $('#width-and-height > h3:first-child > span').text($(window).width());
+        $('#width-and-height > h3:last-child > span').text($(window).height());
+
+    })
+
+    // -- scroll
+    $(window).on('scroll', () => {
+        // console.log("Scrolled!");
+        // console.log("Scroll Top:", $(window).scrollTop())
+    })
+
+
+    // --------------- Form Events -----------------
+    // -- input
+    $('#name').on('input', (event) => {
+        console.log("Name: ", event.target.value);
+    })
+
+    $('#email').on('input', (event) => {
+        console.log("Email: ", event.target.value);
+    })
+
+    // -- change
+    $('#fruit').on('change', (event) => {
+        console.log("CHNAGED: ", event.target.value);
+    })
+
+    // -- submit
+    $('#myForm').on('submit', (event) => {
+        event.preventDefault();
+        console.log("Submitted - name: ", event.target.name.value);
+        console.log("Submitted - email: ", event.target.email.value);
+        console.log("Submitted - fruit ", event.target.fruit.value);
+    })
+
+    // -- reset
+    $('#myForm').on('reset', () => {
+        console.log("RESET!");
+    })
+
+    /*
+    > There are generally over 100 events in JavaScript and,
+    we can categories them in different ways.
+
+    👉 Mouse events
+    > click
+    > dbclick
+    > mousedown
+    > mouseup
+    > mousemove
+    > mouseover
+    > mouseout
+    > contextmenu
+    > wheel
+
+    👉 Keyboard events
+    > keydown
+    > keyup
+    > keypress
+
+    👉 Touch events
+    > touchstart
+    > touchend
+    > touchmove
+    > touchcancel
+
+    👉 Focus events
+    > focus
+    > blur
+    > focusin
+    > focusout
+
+    👉 Form events
+    > submit
+    > reset
+    > change
+    > input
+    > select.
+
+    👉 Media events
+    > play
+    > pause
+    > ended
+    > volumechange
+    > timeupdate
+    > progress
+
+    👉 Drag and drop events
+    > dragstart
+    > drag
+    > dragenter
+    > dragover
+    > dragleave
+    > drop
+    > dragend
+
+    👉 Window events
+     > load
+     > scrollTop
+     > resize
+     > scroll
+
+    👉 CSS animation events
+    > animationstart
+    > animationend
+    > animationiteration
+
+    👉 Mutation events
+    > DOMSubtreeModified
+    > DOMNodeInserted
+    > DOMNodeRemoved
+    > DOMNodeInsertedIntoDocument
+    > DOMNodeRemovedFromDocument
+    > DOMAttrModified.
+    */
+
+</script>
+
+</body>
+</html>

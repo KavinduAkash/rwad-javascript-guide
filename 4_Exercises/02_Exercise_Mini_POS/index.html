@@ -77,6 +77,25 @@
     });
 */
 
+    const data = "DATA";
+
+    var customer_arr = [];
+
+    function loadData() {
+
+        let pre_data = localStorage.getItem(data);
+        let customer_data_arr = JSON.parse(pre_data);
+        customer_data_arr.map((result, index) => {
+            var row = "<tr>" +
+                "<td>"+ result.customer_id +"</td>" +
+                "<td>"+ result.customer_first_name +"</td>" +
+                "<td>"+ result.customer_last_name +"</td>" +
+                "<td>"+ result.customer_address +"</td>" +
+                "</tr>";
+            $('tbody').append(row);
+        })
+    }
+
     $('#btn_add').click(function () {
         // var customer_id = document.getElementById("customer_id").value;
         // var customer_first_name = document.getElementById("first_name").value;
@@ -102,6 +121,17 @@
             <td>123A, flower Rd, Colombo</td>
         </tr>
         */
+
+        let pre_data = localStorage.getItem(data);
+        console.log("ARR: ", pre_data);
+
+        let data_arr = [];
+
+        // undefine/ null/ "" / false
+        if(pre_data) {
+            data_arr = JSON.parse(pre_data);
+        }
+
         var obj = {
             customer_id: customer_id,
             customer_first_name: customer_first_name,
@@ -109,19 +139,15 @@
             customer_address: customer_address
         }
 
-        alert(JSON.stringify(obj));
+        data_arr.push(obj);
+        console.log(data_arr);
+        localStorage.setItem(data, JSON.stringify(data_arr));
 
-        var row = "<tr>" +
-            "<td>"+ customer_id +"</td>" +
-            "<td>"+ customer_first_name +"</td>" +
-            "<td>"+ customer_last_name +"</td>" +
-            "<td>"+ customer_address +"</td>" +
-            "</tr>";
-
-
-        $('tbody').append(row);
+        loadData();
 
     })
+
+    loadData();
 
 </script>
 

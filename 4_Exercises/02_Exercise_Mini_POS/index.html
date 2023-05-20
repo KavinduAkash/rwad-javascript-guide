@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Mini Pos By Akash</title>
     <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
+    <style>
+        tr {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
@@ -77,16 +82,72 @@
     });
 */
 
-    const data = "DATA";
 
-    var customer_arr = [];
+    const data = "DATA"; // local storage saved key
+    var customer_arr = []; // customer temp arr
 
-    function loadData() {
 
+
+
+
+    // data select event
+    $('tbody').on('click', '.row-data', (event) => {
+        console.log($(event.target).closest('tr').find('td').eq(0).text());
+        console.log($(event.target).closest('tr').find('td').eq(1).text());
+        console.log($(event.target).closest('tr').find('td').eq(2).text());
+        console.log($(event.target).closest('tr').find('td').eq(3).text());
+        console.log($(event.target.parentNode).find('td').eq(0).text());
+
+        let customer_id = $(event.target).closest('tr').find('td').eq(0).text()
+        let customer_fname = $(event.target).closest('tr').find('td').eq(1).text()
+        let customer_lname = $(event.target).closest('tr').find('td').eq(2).text()
+        let customer_address = $(event.target).closest('tr').find('td').eq(3).text()
+
+        $('#customer_id').val(customer_id);
+        $('#first_name').val(customer_fname);
+        $('#last_name').val(customer_lname);
+        $('#customer_address').val(customer_address);
+    })
+
+    // $('tbody').on('click', '.row-data', function(event) {
+    //     console.log($(this).find('td').eq(0).text());
+    //     console.log($(this).find('td').eq(1).text());
+    //     console.log($(this).find('td').eq(2).text());
+    //     console.log($(this).find('td').eq(3).text());
+    // })
+
+    $('#btn_update').on('click', (event) => {
+        let customer_id = $('#customer_id').val();
         let pre_data = localStorage.getItem(data);
         let customer_data_arr = JSON.parse(pre_data);
+        let index = customer_data_arr.findIndex(e => e.customer_id  ===  customer_id);
+        if(index>-1) {
+           console.log(customer_data_arr[index]);
+            customer_data_arr[index].id = $('#customer_id').val();
+            customer_data_arr[index].customer_first_name = $('#first_name').val();
+            customer_data_arr[index].customer_last_name = $('#first_name').val();
+            customer_data_arr[index].customer_address = $('#customer_address').val();
+            localStorage.setItem(data, JSON.stringify(customer_data_arr));
+            loadData();
+        }
+    })
+
+
+
+
+
+
+
+
+    // data load function
+    function loadData() {
+        let pre_data = localStorage.getItem(data);
+        let customer_data_arr = JSON.parse(pre_data);
+
+        $('tbody').empty();
+
         customer_data_arr.map((result, index) => {
-            var row = "<tr>" +
+            var row = "<tr class='row-data'>" +
                 "<td>"+ result.customer_id +"</td>" +
                 "<td>"+ result.customer_first_name +"</td>" +
                 "<td>"+ result.customer_last_name +"</td>" +
@@ -96,6 +157,7 @@
         })
     }
 
+    // add customer function
     $('#btn_add').click(function () {
         // var customer_id = document.getElementById("customer_id").value;
         // var customer_first_name = document.getElementById("first_name").value;

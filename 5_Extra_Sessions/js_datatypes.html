@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js Data Types</title>
+</head>
+<body>
+
+<script>
+
+    var x = "Hello";
+    console.log(typeof x);
+
+    var y = 1;
+    console.log(typeof y);
+
+    y = 1.5;
+    console.log(typeof y);
+
+    var z = true;
+    console.log(typeof z);
+
+    var a = null;
+    console.log(typeof a);
+
+    var b = undefined;
+    console.log(typeof b);
+
+    var k = BigInt(123232132131232131232131231231231321321);
+    console.log(typeof k);
+    console.log(k);
+
+    var k1 = 123232132131232131232131231231231321321;
+    console.log(k1);
+
+    var mySymbol = Symbol('name');
+    console.log(typeof mySymbol);
+    var obj = {
+        [mySymbol]:"kavindu"
+    }
+
+    var obj = {
+        name:"kavindu"
+    }
+
+    console.log(typeof obj);
+
+    var f = function() {
+        console.log('hello!');
+    }
+
+    console.log(typeof f);
+
+    var arr = [1, 2, 3];
+    console.log(typeof arr);
+
+</script>
+
+</body>
+</html>

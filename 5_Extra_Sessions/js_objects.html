@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Objects</title>
+</head>
+<body>
+
+<script>
+
+    class Person {
+        constructor(name, age) {
+            this._name = name;
+            this._age = age;
+        }
+        get name() {
+            return this._name;
+        }
+        set name(name) {
+            this._name = name;
+        }
+        get age() {
+            return this._age;
+        }
+        set age(age) {
+            this._age = name;
+        }
+        getNameAge() {
+            return this._name + " " + this._age
+        }
+    }
+
+    let person = new Person('Kavindu', 28);
+    console.log(person.name);
+    person.name = 'Akash';
+    console.log(person.getNameAge());
+
+</script>
+
+</body>
+</html>

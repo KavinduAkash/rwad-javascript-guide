@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1 JavaScript Objects</title>
+</head>
+<body>
+
+<script>
+
+    // Constructor Objects
+
+    function Student(id, fname, lname, address) {
+        // attribute
+        this.id = id;
+        this.fname = fname;
+        this.lname = lname;
+        this.address = address;
+
+        // methods
+    }
+
+    function Teacher(id, fname, lname, address) {
+        // attribute
+        this.id = id;
+        this.fname = fname;
+        this.lname = lname;
+        this.address = address;
+
+        // methods
+    }
+
+    const kasun = new Student(1, 'Kasun', 'Mendis', 'Panadura');
+    console.log(kasun);
+
+    const janith = new Student(2, 'Janith', 'Sankalpa', 'Galle');
+    console.log(janith);
+
+    console.log(kasun instanceof Student);
+    console.log(kasun instanceof Teacher);
+
+    console.log(kasun["id"]);
+    console.log(janith["id"]);
+    console.log(kasun["fname"]);
+    console.log(kasun["lname"]);
+    console.log(kasun["address"]);
+
+    kasun['fname'] = 'Chamila';
+    console.log(kasun);
+
+    kasun['grade'] = "10";
+    console.log(kasun);
+
+    delete kasun['grade'];
+    console.log(kasun);
+
+    ////////////////////////////////////////////
+
+    console.log(kasun.id);
+    console.log(kasun.fname);
+    console.log(kasun.lname);
+    console.log(kasun.address);
+    console.log(kasun.grade);
+
+    kasun.address = "Japan";
+    console.log(kasun);
+
+
+    const Employee = function(id, fname, lname, address) {
+        // attribute
+        this._id = id;
+        this._fname = fname;
+        this._lname = lname;
+        this._address = address;
+
+        // methods (functions)
+        this.getId = function () {
+            return this._id;
+        }
+
+        this.getFname = function () {
+            return this._fname;
+        }
+
+        this.getLname = function () {
+            return this._lname;
+        }
+
+        this.getAddress = function () {
+            return this._address;
+        }
+
+        this.setId = function (id) {
+            this._id = id;
+        }
+
+        this.setFname = function (fname) {
+            this._fname = fname;
+        }
+
+        this.setLname = function (lname) {
+            this._lname = lname;
+        }
+
+        this.setAddress = function (address) {
+            this._address = address;
+        }
+    }
+
+    const pathum = new Employee(1, 'Pathum', 'Dimantha', 'Colombo');
+    console.log(pathum);
+
+    let fname = pathum.getFname();
+    console.log(fname);
+
+    pathum.setFname('Mathew');
+    console.log(pathum);
+
+</script>
+
+</body>
+</html>

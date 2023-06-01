@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3 Object Creation [ Literal Based ]</title>
+</head>
+<body>
+
+<script>
+    let student = {
+        id: 1,
+        fname: 'Tharindu',
+        lname: 'Danajaya',
+        address: {
+            address_line1: '123A',
+            address_line2: 'Flower Rd',
+            address_line3: 'Colombo',
+            country: 'Sri Lanka'
+        },
+        beverages: ['tea', 'coffee', 'faluda']
+    }
+    console.log(typeof student);
+    console.log(student['id']);
+    console.log(student.id);
+
+    console.log(student.address.country);
+    console.log(student["address"]["country"]);
+
+</script>
+
+</body>
+</html>

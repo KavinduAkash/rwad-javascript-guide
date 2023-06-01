@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Arrays</title>
+</head>
+<body>
+
+<script>
+
+    let arr = [];
+    let arr1 = [1, 2, 3, 4, 5, 6, "hello", true, function () {console.log('hello2!')}, {name: 'Kavindu', age: 28}];
+    // console.log(arr1)
+
+    let item1 = arr1[0];
+    let item2 = arr1[1];
+    let item9 = arr1[8];
+    // item9();
+
+    arr1[6] = "Hi";
+    // console.log(arr1)
+
+    let arr2 = ['A', 'B', 'C'];
+    arr2.push('D'); // add item to end
+    // console.log(arr2);
+
+    let arr3 = ['Namal', 'MY3', 'Anura', 'Mahinda'];
+    console.log(arr3);
+
+    console.log(arr3.pop()); // remove last item
+    console.log(arr3);
+
+    arr3.shift(); // remove first item
+    console.log(arr3);
+
+    arr3.unshift('Sajith');
+    console.log(arr3);
+
+    arr3.unshift('china', 'usa');
+    console.log(arr3);
+
+    let arr4 = ['A', 'B', 'C', 'D'];
+    let arr5 = [1, 2, 3, 4];
+
+    let newArr1 = arr4.concat(arr5);
+    console.log(newArr1);
+    let newArr2 = arr5.concat(arr4);
+    console.log(newArr2);
+
+    console.log(" -------------------- ");
+
+    let numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // let r1 = numberArray.slice(2);
+    let r1 = numberArray.slice(7);
+    console.log(r1);
+
+    let r2 = numberArray.slice(-3);
+    console.log(r2);
+
+    let r3 = numberArray.slice(2, 6);
+    console.log(r3);
+
+    console.log(" -------------------- ");
+
+    numberArray.map((result, index) => {
+        console.log(`${index} - ${result}`);
+    })
+
+    let rr = numberArray.reverse();
+    console.log(rr);
+    console.log(numberArray);
+
+    let c = numberArray.filter(r => r%2 > 0);
+    console.log(c);
+
+
+    let arr100 = new Array(1, 2, 3, 4, 5);
+    console.log(arr100);
+
+    let arr200 = new Array(5);
+    console.log(arr200);
+
+    let arr300 = new Array('a');
+    console.log(arr300);
+
+    // let arr400 = new Array(5.9);// Invalid array
+    // console.log(arr400);
+
+    let arr500 = new Array(true);// Invalid array
+    console.log(arr500);
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Functions</title>
+</head>
+<body>
+
+<script>
+
+    function sayHello(name) {
+        console.log(`Hello ${name}`);
+    }
+
+    sayHello("Kavindu");
+
+    const setAge = function(age) {
+        console.log(`Age ${age}`);
+    }
+
+    setAge(28);
+
+    const printCollage = (collage) => {
+        console.log(`Institute: ${collage}`);
+    }
+
+    printCollage('IJSE')
+
+    const calc = new Function("a", "b", "return a + b");
+    const calcp = new Function("a", "b", "console.log(a)");
+
+    calc(1, 2); // 3
+    calcp(1, 2); // 1
+
+    // Anonymous Function - use it as function expression
+    /*function () {
+        console.log('Hello');
+    }*/
+
+    // IIFE
+
+    // function () {
+    //     console.log("Welcome to Javascript");
+    // }
+
+    (
+        function () {
+            console.log("Welcome to Javascript");
+        }
+    )();
+
+    // document.getElementById('hello')[0].addEventListener('click', function() {
+    //
+    // })
+
+    function callMyFunction(caller) {
+        caller();
+    }
+
+    function call1() {
+        console.log("I'm call 1");
+    }
+
+    function call2() {
+        console.log("I'm call 2");
+    }
+
+    function call3() {
+        console.log("I'm call 3");
+    }
+
+
+    callMyFunction(call3);
+
+
+    const getMaxNum = (num1, num2, num3) => {
+        let max = num1;
+        if(num2 > max) {
+            max = num2;
+        }
+        if(num3 > max) {
+            max = num3;
+        }
+        return max;
+    }
+
+    console.log(getMaxNum(90, 800, 100));
+
+
+
+
+</script>
+
+</body>
+</html>
